@@ -92,8 +92,8 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  
-  config.web_socket_server_url = "wss://obscure-bastion-43985.herokuapp.com/cable"
+  config.middleware.use ChatActionCable
+  config.web_socket_server_url = "wss://obscure-bastion-43985.herokuapp.com/"
   config.action_cable.allowed_request_origins = ['https://obscure-bastion-43985.herokuapp.com', 'https://obscure-bastion-43985.herokuapp.com']
 
 end
