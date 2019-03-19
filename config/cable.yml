@@ -1,10 +1,14 @@
-development:
-  adapter: async
-
-test:
-  adapter: async
-
-production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: message_me_production
+development: &development  
+  :url: redis://localhost:6379
+  :host: localhost
+  :port: 6379
+  :timeout: 1
+  :inline: true
+test: *development  
+production: &production  
+  :url:     redis://redistogo:4d51bdc13b6a37017ec1efa1f8b7fce9@spinyfin.redistogo.com:11493
+  :host: spinyfin.redistogo.com
+  :port: 11493
+  :password: 4d51bdc13b6a37017ec1efa1f8b7fce9
+  :inline: true
+  :timeout: 1
